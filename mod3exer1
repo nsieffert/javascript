@@ -58,9 +58,8 @@ var votingAge = 21, currentAge = 42;
 var wizString = "The five boxing wizards jump quickly.";
     var wizSplit = wizString.split(" ");
     wizString = wizSplit.join();
+	console.log(wizString);
  
- //NOTE: it did not say to log it to the console.
-
 
 /************************************************************* */
 // Problem 4:
@@ -90,29 +89,11 @@ Include the make, model, year, and color. Write a function to get the year, colo
 //your code...
 
 function car(year, color, make, model) {
-        return `My car is a ${year} ${color} ${make} ${model}`;
-    }
-
-    var myCar = car(2013, 'white', 'Volkswagen', 'Jetta');
-    console.log(myCar);
-
-
-  function car(year, color, make, model) {
         return 'My car is a ' + year + ' ' + color + ' ' + make + ' ' + model;
     }
 
     var myCar = car(2013, 'white', 'Volkswagen', 'Jetta');
     console.log(myCar);
-
-//here it is using template string:
-
-function car(year, color, make, model) {
-        return `My car is a ${year} ${color} ${make} ${model}`;
-    }
-
-    var myCar = car(2013, 'white', 'Volkswagen', 'Jetta');
-    console.log(myCar);
-
 
 
 
@@ -127,7 +108,7 @@ Each iteration, the for loop will check if the current number is odd or even and
 
 //Here is the combined one, which is maybe what I think is wanted:
 
-function oddEvenLoop() {
+    function oddEvenLoop() {
         for (let i = 0; i <= 15; i++) {
             if (i % 2 !== 0) {
                 console.log('odd ' + i);
@@ -135,31 +116,8 @@ function oddEvenLoop() {
             else (console.log('even ' + i));
         }
     }
-	console.log(oddEvenLoop());
+    oddEvenLoop();
 
-//odd loop only
-
-function oddLoop() {
-        for (let i = 0; i <= 15; i++) {
-            if (i % 2 !== 0) {
-                console.log(i);
-            }
-        }
-    }
-
-    console.log(oddLoop());
-
-// even loop only
-
-    function evenLoop() {
-        for (let i = 0; i < 15; i++) {
-            if (i % 2 == 0) {
-                console.log(i);
-            }
-        }
-    }
-
-    console.log(evenLoop());
 
 
 /************************************************************* */
@@ -171,7 +129,7 @@ For numbers that are multiples of both 3 and 5, print "TEKcamp."
 //your code...
 
 function tekCamp() {
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i <= 100; i++) {
             if ((i % 3 === 0) && (i % 5 === 0)) {
                 console.log('TEKcamp ' + i);
             }
@@ -189,7 +147,7 @@ function tekCamp() {
         }
     }
 
-    console.log(tekCamp());
+    tekCamp();
 
 
 
@@ -226,7 +184,8 @@ const foodArray = ['potatoes', 'tamales', 'lemon', 'strawberries', 'chocolate', 
     foodArray[6] = 'school';
     console.log(foodArray[6]);
 	
-	
+	***************
+//	problem 9 continued
 const adjectiveArray = [ 'salty', 'spicy', 'sour', 'sweet', 'rich','creamy','amazing'];
 // Using both foodArray and adjectiveArray, make a
 // "for" loop that console.log()'s a sentence for each
@@ -246,6 +205,8 @@ const foodArray = ['potatoes', 'tamales', 'lemon', 'strawberries', 'chocolate', 
 
         }
     }
+
+//NOTE: This did not specify whether to use the "old" foodArray, or the new one with 'school' in place of Tekcamp. I left the tekcamp in there, but recognize that school could have been in there instead.
 
 /************************************************************* */
 // Bonus Assignment: Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly does one of the 4 operations whenever it is run.  the doMath() function should print out what mathetmatical function was carried out.  The doMath() function should return the computed value of any operation performed.
