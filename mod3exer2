@@ -24,22 +24,27 @@ let  i = 0;
 
 //your code...
 
-let add = function (a, b) {
-        return a + b;
+	let n = 30;
+    let p;
+    let add = function () {
+        n = n + 2;
     }
-    let multiply = function (c, d) {
-        return c * d;
+    let multiply = function () {
+        n = n * 20;
     }
-    let arithPower = function (g, h) {
-        return Math.pow(g, h);
+    let arithPower = function () {
+        p = Math.pow(10, 2);        
     }
     let divide = function (e, f) {
-        return e / f;
+        n = n / p;
     }
 
-    console.log(add(30, 2), multiply(32, 10), arithPower(10, 2), divide(320, 100));
+    add();
+    multiply();
+    arithPower(10, 2);
+    divide();
+    console.log(n); // answer is 6.4
 	
-//NOTE: I believe this is what the problem is asking for, just to run the functions we built, not to try to combine them into a one click function.
 
 /************************************************************* */
 //Problem 3:
@@ -61,57 +66,50 @@ along with your reasoning why using String interpolation.
 
 //your code...
 
- function truthyTest(val) {
-        if (val) {
-            console.log(val + " is truthy: considered true when used in a boolean context");
+ function truthyTest(value) {
+
+        if (value) {
+            console.log(`${`${value}`} is is truthy: considered true when used in a boolean context`);
         } else {
-            console.log(val + " is falsy (in boolean context). It is one of the six falsy values: false, 0, undefined, null, NaN, empty string");
+            console.log(`${`${value}`} is falsy(in boolean context).
+            It is one of the six falsy values: false, 0, undefined, null, NaN, empty string`);
         }
     }
-    
-      truthyTest(20);
-      truthyTest(0);
-      truthyTest("zero");
-      truthyTest('const zero = 20');
-      truthyTest(null);
-      truthyTest("0");
-      truthyTest(!"");
-      truthyTest();
-      truthyTest("Hello TEKCamp");
-      truthyTest(125);
-      truthyTest(undefined);
-      truthyTest(" ");
+    truthyTest(20);
+    truthyTest(0);
+    truthyTest("zero");
+    truthyTest('const zero = 20');
+    truthyTest(null);
+    truthyTest("0");
+    truthyTest(!"");
+    truthyTest();
+    truthyTest("Hello TEKCamp");
+    truthyTest(125);
+    truthyTest(undefined);
+    truthyTest(" ");
 
 
 
 
-//directly below are the results from console.log for each item NOTE: I edited the results only to reflect the original values:
+//directly below are the results from console.log for each item:
 
 /* 
-20 is truthy: considered true when used in a boolean context
-
-0 is falsy (in boolean context). It is one of the six falsy values: false, 0, undefined, null, NaN, empty string
-
-"zero" is truthy: considered true when used in a boolean context
-
-const zero = 20 *did not work, and it is unclear what is being asked for here. If the whole thing is a string then it is truthy.
-//NOTE: it is unclear what we are testing on this one. normally a constant zero should not be set to 20. But "zero" here is a string, so it would be truthy.
-
-null is falsy (in boolean context). It is one of the six falsy values: false, 0, undefined, null, NaN, empty string
-
-"0" is truthy: considered true when used in a boolean context
-
-!"" is truthy: considered true when used in a boolean context 
-
-empty parentheses are falsy (in boolean context). It is one of the six falsy values: false, 0, undefined, null, NaN, empty string
-
-"Hello TEKCamp" is truthy: considered true when used in a boolean context
-
-125 is truthy: considered true when used in a boolean context
-
-undefined is falsy (in boolean context). It is one of the six falsy values: false, 0, undefined, null, NaN, empty string
-
-empty string is truthy: considered true when used in a boolean context. */
+20 is is truthy: considered true when used in a boolean context
+0 is falsy(in boolean context).
+            It is one of the six falsy values: false, 0, undefined, null, NaN, empty string
+zero is is truthy: considered true when used in a boolean context
+const zero = 20 is is truthy: considered true when used in a boolean context
+null is falsy(in boolean context).
+            It is one of the six falsy values: false, 0, undefined, null, NaN, empty string
+0 is is truthy: considered true when used in a boolean context
+true is is truthy: considered true when used in a boolean context
+undefined is falsy(in boolean context).
+            It is one of the six falsy values: false, 0, undefined, null, NaN, empty string
+Hello TEKCamp is is truthy: considered true when used in a boolean context
+125 is is truthy: considered true when used in a boolean context
+undefined is falsy(in boolean context).
+            It is one of the six falsy values: false, 0, undefined, null, NaN, empty string
+  is is truthy: considered true when used in a boolean context */
 
 /************************************************************* */
 // Problem 4:
@@ -229,7 +227,7 @@ let  motorcycle = {
             return this.horsePower
         }
     }
-    console.log(motorcycle.horsePower);
+    console.log(motorcycle.horsePower); // because I have gotten it up to 110 mph!
 	
 /************************************************************* */
 //Problem 7: create a function that outputs your 3 favorite data types, with a message explaining why you like that data type.
@@ -274,20 +272,14 @@ function favDataTypes(a, b, c) {
 
 //your code...
 
-let message = ' is how much the stock has increased';
-    let growthRate = .05;
-
-    function stockGain(basis) {
+function stockGain(basis) {
         return function yrsGain(years) {
-            console.log(basis * growthRate + message);
+            let growthRate = basis * .05 * years;
+            return growthRate;
         }
     }
-    const gainCalc = stockGain(1000, 5);
-    gainCalc(5);
+    let gainCalc = stockGain(1000);
+    console.log(gainCalc(9) + ' is how much the stock has increased');
 
-    let futureValue = stockGain(1000, 5);
-
-    console.log(futureValue);
-
-	
-//I tried but could not make this second part work. I would love to know where I went wrong, because it is still very fuzzy in my head. Thanks!
+    let futureValue = stockGain(1000);
+    console.log(futureValue(50) + ' is how much it will increase in the future');
