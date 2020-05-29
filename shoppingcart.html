@@ -1,0 +1,63 @@
+<!-- source code available : https://github.com/mdn/learning-area/blob/master/javascript/apis/document-manipulation/shopping-list.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Shopping list example</title>
+    <link rel="stylesheet" href="shoppingcart.css"
+</head>
+
+<body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+        <label for="item">Enter a new item:</label>
+        <input type="text" name="item" id="item">
+        <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        const ulist = document.querySelector('ul');
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+
+
+
+        button.onclick = function () {
+            let items = input.value;
+            input.value = '';
+
+
+            const olist = document.createElement('li');
+            const span = document.createElement('span');
+            const listBtn = document.createElement('button');
+
+
+            olist.appendChild(span);
+            olist.appendChild(listBtn);
+            span.textContent = items;
+            ulist.appendChild(olist);
+            listBtn.textContent = 'Delete';
+
+
+
+            listBtn.onclick = function (e) {
+                ulist.removeChild(olist); // event handler for delete button
+            }
+
+
+            input.focus(); // readies the input field for the next entry.
+        }
+
+
+    </script>
+</body>
+
+</html>
